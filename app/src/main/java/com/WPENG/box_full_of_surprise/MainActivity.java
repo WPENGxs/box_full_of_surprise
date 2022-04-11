@@ -39,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Request_permission();//权限判断和申请
+
         ConstraintLayout main=findViewById(R.id.mainActivity);
         Calendar cal = Calendar.getInstance();//设置日历
         Button scan_code=findViewById(R.id.button_scan_code);
@@ -62,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
             settings_drawable.setTint(Color.WHITE);
         }
 
-        Request_permission();//权限判断和申请
+
 
         Data=new SQLite(this,"Database",null,1);//构造数据库
         Database = Data.getWritableDatabase();//获取可写数据库
