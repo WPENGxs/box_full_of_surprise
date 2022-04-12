@@ -7,121 +7,222 @@
     tools:context=".Create_blessing"
     android:background="@drawable/background1">
 
-    <Button
-        android:id="@+id/next_button"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:text="下一步"
-        android:textSize="20sp"
-        android:textColor="#56CFFF"
-        android:onClick="To_set_password"
-        android:background="@drawable/rimless_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        style="?android:attr/borderlessButtonStyle"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/textView_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="80dp"
-        android:text="标题："
-        android:textSize="25sp"
-        android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
-    <EditText
-        android:id="@+id/editText_title"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="50dp"
-        android:background="@drawable/round_edit_style"
-        android:hint="请输入标题"
-        android:maxLines="2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_title" />
+                <Button
+                    android:id="@+id/back_button"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_gravity="start"
+                    android:background="@drawable/ic_back"
+                    android:onClick="Back_to_view"/>
 
-    <TextView
-        android:id="@+id/textView_contents"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="10dp"
-        android:text="文案："
-        android:textColor="@color/black"
-        android:textSize="25sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_title" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="文字编辑"
+                    android:textSize="20sp"/>
 
-    <EditText
-        android:id="@+id/editText_contents"
-        android:layout_width="300dp"
-        android:layout_height="150dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="50dp"
-        android:background="@drawable/round_edit_style"
-        android:hint="请输入文案"
-        android:maxLines="6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_contents" />
+                <Button
+                    android:id="@+id/next_button"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_gravity="end"
+                    android:background="@drawable/ic_next"
+                    android:onClick="To_set_password"/>
+            </LinearLayout>
 
-    <TextView
-        android:id="@+id/textView_audio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="10dp"
-        android:text="音频："
-        android:textColor="@color/black"
-        android:textSize="25sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_contents" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-    <Button
-        android:id="@+id/button_record_audio"
-        android:layout_width="300dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/general_button"
-        android:text="录音界面"
-        android:textColor="@color/black"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_audio" />
+                <TextView
+                    android:id="@+id/textView_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="50dp"
+                    android:text="标题："
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView_video"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="10dp"
-        android:text="视频："
-        android:textColor="@color/black"
-        android:textSize="25sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_record_audio" />
+                <EditText
+                    android:id="@+id/editText_title"
+                    android:layout_width="300dp"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="50dp"
+                    android:background="@drawable/round_edit_style"
+                    android:hint="请输入标题"
+                    android:maxLines="2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_title" />
 
-    <Button
-        android:id="@+id/button_choose_video"
-        android:layout_width="300dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/general_button"
-        android:text="选择视频"
-        android:textColor="@color/black"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_video" />
+                <TextView
+                    android:id="@+id/textView_contents"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="10dp"
+                    android:text="文案："
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editText_title" />
+
+                <EditText
+                    android:id="@+id/editText_contents"
+                    android:layout_width="300dp"
+                    android:layout_height="300dp"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="50dp"
+                    android:layout_marginEnd="50dp"
+                    android:background="@drawable/round_edit_style"
+                    android:hint="请输入文案"
+                    android:maxLines="12"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_contents" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:background="@drawable/general_button">
+
+                <LinearLayout
+                    android:layout_width="70dp"
+                    android:layout_height="80dp"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp">
+                    <Button
+                        android:id="@+id/button_record_audio"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:background="@drawable/ic_audio" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:gravity="center"
+                        android:text="录音" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="70dp"
+                    android:layout_height="80dp"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp">
+                    <Button
+                        android:id="@+id/button_choose_video"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:background="@drawable/ic_video" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:gravity="center"
+                        android:text="视频" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="70dp"
+                    android:layout_height="80dp"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp">
+                    <Button
+                        android:id="@+id/button_choose_cartoon"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:background="@drawable/ic_cartoon" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:gravity="center"
+                        android:text="动漫" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="70dp"
+                    android:layout_height="80dp"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp">
+                    <Button
+                        android:id="@+id/button_choose_poem"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:background="@drawable/ic_poem" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:gravity="center"
+                        android:text="藏头诗" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="70dp"
+                    android:layout_height="80dp"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp">
+                    <Button
+                        android:id="@+id/button_choose_music"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:background="@drawable/ic_music" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:gravity="center"
+                        android:text="音乐" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

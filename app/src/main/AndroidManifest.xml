@@ -24,7 +24,6 @@
         </activity>
         <activity android:name=".Set_pack" />
         <activity android:name=".Settings" />
-        <activity android:name=".Set_tips" />
         <activity android:name=".Set_password" />
         <activity android:name=".Create_blessing" />
         <activity

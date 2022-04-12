@@ -268,4 +268,9 @@ public class Create_blessing extends AppCompatActivity {
         }
     }
 
+    public void Back_to_view(View view){
+        Intent intent = new Intent(this, MainActivity.class);//显示intent
+        startActivity(intent);
+    }
+
 }
