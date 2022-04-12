@@ -4,37 +4,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Set_pack"
-    android:background="@drawable/background4">
+    tools:context=".Set_pack">
 
-    <Button
-        android:id="@+id/finish_button"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:text="完成"
-        android:textSize="20sp"
-        android:textColor="#56CFFF"
-        android:background="@drawable/rimless_button"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        style="?android:attr/borderlessButtonStyle"/>
-
-    <Button
-        android:id="@+id/return_button"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/rimless_button"
-        android:onClick="To_set_tips"
-        android:text="返回"
-        android:textColor="#56CFFF"
-        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        style="?android:attr/borderlessButtonStyle"/>
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/back_button"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="start"
+            android:layout_marginStart="20dp"
+            android:background="@drawable/ic_back"
+            android:onClick="To_set_tips" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="密码设置"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/finish_button"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="end"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/ic_next" />
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/Linear_confirm"
@@ -43,10 +51,11 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="10dp"
+        android:background="@drawable/round_edit_style"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/finish_button">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
     </LinearLayout>
 
