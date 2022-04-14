@@ -100,11 +100,11 @@
                 <EditText
                     android:id="@+id/editText_contents"
                     android:layout_width="300dp"
-                    android:layout_height="350dp"
+                    android:layout_height="300dp"
                     android:layout_marginStart="50dp"
                     android:layout_marginTop="50dp"
-                    android:layout_marginBottom="50dp"
                     android:layout_marginEnd="50dp"
+                    android:layout_marginBottom="50dp"
                     android:gravity="start"
                     android:hint="请输入文案"
                     android:maxLines="15"
@@ -122,16 +122,16 @@
 
                 <LinearLayout
                     android:layout_width="40dp"
-                    android:layout_height="90dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
                     android:layout_weight="1"
                     android:orientation="vertical">
 
                     <Button
                         android:id="@+id/button_record_audio"
                         android:layout_width="match_parent"
-                        android:layout_height="70dp"
+                        android:layout_height="60dp"
                         android:background="@drawable/ic_audio" />
 
                     <TextView
@@ -143,15 +143,15 @@
 
                 <LinearLayout
                     android:layout_width="40dp"
-                    android:layout_height="90dp"
+                    android:layout_height="80dp"
                     android:orientation="vertical"
                     android:layout_weight="1"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp">
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp">
                     <Button
                         android:id="@+id/button_choose_video"
                         android:layout_width="match_parent"
-                        android:layout_height="70dp"
+                        android:layout_height="60dp"
                         android:background="@drawable/ic_video" />
 
                     <TextView
@@ -163,15 +163,15 @@
 
                 <LinearLayout
                     android:layout_width="40dp"
-                    android:layout_height="90dp"
+                    android:layout_height="80dp"
                     android:orientation="vertical"
                     android:layout_weight="1"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp">
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp">
                     <Button
                         android:id="@+id/button_choose_cartoon"
                         android:layout_width="match_parent"
-                        android:layout_height="70dp"
+                        android:layout_height="60dp"
                         android:background="@drawable/ic_cartoon" />
 
                     <TextView
@@ -183,15 +183,15 @@
 
                 <LinearLayout
                     android:layout_width="40dp"
-                    android:layout_height="90dp"
+                    android:layout_height="80dp"
                     android:orientation="vertical"
                     android:layout_weight="1"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp">
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp">
                     <Button
                         android:id="@+id/button_choose_poem"
                         android:layout_width="match_parent"
-                        android:layout_height="70dp"
+                        android:layout_height="60dp"
                         android:background="@drawable/ic_poem" />
 
                     <TextView
@@ -203,15 +203,15 @@
 
                 <LinearLayout
                     android:layout_width="40dp"
-                    android:layout_height="90dp"
+                    android:layout_height="80dp"
                     android:orientation="vertical"
                     android:layout_weight="1"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp">
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp">
                     <Button
                         android:id="@+id/button_choose_music"
                         android:layout_width="match_parent"
-                        android:layout_height="70dp"
+                        android:layout_height="60dp"
                         android:background="@drawable/ic_music" />
 
                     <TextView

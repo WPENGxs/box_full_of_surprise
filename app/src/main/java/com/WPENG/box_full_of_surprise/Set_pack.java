@@ -14,6 +14,8 @@ import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.Message;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
@@ -50,6 +52,10 @@ public class Set_pack extends AppCompatActivity {
     static String Background="经典.png";
     int Background_which;
 
+    boolean IsHtmlUpload=false;
+    Handler handler=null;
+
+    @SuppressLint("HandlerLeak")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +65,25 @@ public class Set_pack extends AppCompatActivity {
 
         GetBackground();//在服务器端获得背景列表
 
+        handler=new android.os.Handler(){
+            public void handleMessage(Message message){
+                switch (message.what){
+                    case 0x01:
+                        IsHtmlUpload=true;
+                        break;
+                    case 0x02:
+                        Toast.makeText(Set_pack.this,"上传完毕",Toast.LENGTH_SHORT).show();
+                        break;
+                    case 0x03:
+                        Toast.makeText(Set_pack.this,"error!!!",Toast.LENGTH_SHORT).show();
+                        break;
+                    default:
+                        break;
+                }
+            }
+        };
+
+
         Button background_choose_button=findViewById(R.id.background_choose_button);
         background_choose_button.setOnClickListener(new View.OnClickListener() {//设置选择背景按钮的监听
             @Override
@@ -67,7 +92,7 @@ public class Set_pack extends AppCompatActivity {
                 AlertDialog.Builder background_choose=new AlertDialog.Builder(Set_pack.this);
                 background_choose.setTitle("选择贺卡背景");
                 background_choose.setItems(list,(dialog, which) ->{
-                    String url="https://www.wpengxs.cn/shu_meng_ge/shu_meng_ge_background/"+list[which];//设定图片url
+                    String url="https://www.wpengxs.cn/shu_meng_ge/shu_meng_ge_html/shu_meng_ge_background/"+list[which];//设定图片url
                     Background_which=which;
 
                     WebView img=new WebView(Set_pack.this);
@@ -145,34 +170,28 @@ public class Set_pack extends AppCompatActivity {
                 new Thread(){//上传Html
                     @Override
                     public void run(){
-                        FTP_server FTP_uploadHtml=new FTP_server("1.15.28.84","shu_meng_ge_html","SMG0628");
+                        /*Message html_message=new Message();*/
+                        FTP_server FTP_uploadHtml=new FTP_server("1.15.28.84","shu_meng_ge_html","SMG_0628");
                         try {
                             FTP_uploadHtml.openConnect();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-
-                        File html_file=new File(SQLite.SQLite_data.Html_path);//Html文件路径
-
-                        try {
+                            File html_file=new File(SQLite.SQLite_data.Html_path);//Html文件路径
                             FTP_uploadHtml.uploadingSingle(html_file);//上传html文件
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-
-                        try {
                             FTP_uploadHtml.closeConnect();
                         } catch (IOException e) {
+                            /*html_message.what=0x03;
+                            handler.sendMessage(html_message);*/
                             e.printStackTrace();
                         }
+                        /*html_message.what=0x01;
+                        handler.sendMessage(html_message);*/
 
-                        try {//在此向云端数据库发送标题、密码和提示方式
+                        /*try {//在此向云端数据库发送标题、密码和提示方式
                             Data_socket socket=new Data_socket("1.15.28.84",39002);
                             socket.SentData(SQLite.SQLite_data.title+"/"+SQLite.SQLite_data.password+"/"+SQLite.SQLite_data.tips);
                             socket.Close();
                         } catch (Exception e) {
                             e.printStackTrace();
-                        }
+                        }*/
                     }
                 }.start();
 
@@ -194,6 +213,7 @@ public class Set_pack extends AppCompatActivity {
                         // Android 4.0 之后不能在主线程中请求HTTP请求
                         @Override
                         public void run(){
+                            Message file_message=new Message();
                             FTP_server FTP_upload=new FTP_server("1.15.28.84","shu_meng_ge_files","SMG0628");
                             try {
                                 FTP_upload.openConnect();//打开FTP服务
@@ -211,9 +231,13 @@ public class Set_pack extends AppCompatActivity {
 
                             try {
                                 FTP_upload.closeConnect();//关闭FTP服务
+                                file_message.what=0x02;
+                                handler.sendMessage(file_message);
                                 upload_dialog.setMessage("上传完毕");
                                 //upload_dialog.dismiss();//上传完毕结束弹窗
                             } catch (IOException e) {
+                                file_message.what=0x03;
+                                handler.sendMessage(file_message);
                                 e.printStackTrace();
                             }
                         }
@@ -229,7 +253,7 @@ public class Set_pack extends AppCompatActivity {
     public void GetBackground(){
         new Thread(){
             public void run(){
-                FTP_server FTP_background=new FTP_server("1.15.28.84","shu_meng_ge_html","SMG0628");
+                FTP_server FTP_background=new FTP_server("1.15.28.84","shu_meng_ge_html","SMG_0628");
                 try {
                     FTP_background.openConnect();
                 } catch (IOException e) {
@@ -381,7 +405,7 @@ public class Set_pack extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void To_set_tips(View view){
+    public void To_set_password(View view){
         Intent intent = new Intent(this, Set_password.class);//显示intent
         startActivity(intent);
     }
