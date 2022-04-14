@@ -21,33 +21,35 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
+                android:background="@color/myColor02"
                 android:layout_marginTop="10dp">
 
                 <Button
                     android:id="@+id/back_button"
                     style="?android:attr/borderlessButtonStyle"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="40dp"
+                    android:layout_height="30dp"
                     android:layout_marginStart="20dp"
-                    android:layout_gravity="start"
+                    android:layout_gravity="start|center"
                     android:background="@drawable/ic_back"
                     android:onClick="Back_to_view"/>
 
                 <TextView
                     android:layout_width="0dp"
-                    android:layout_height="50dp"
+                    android:layout_height="40dp"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="文字编辑"
-                    android:textSize="20sp"/>
+                    android:textStyle="bold"
+                    android:textSize="25sp"/>
 
                 <Button
                     android:id="@+id/next_button"
                     style="?android:attr/borderlessButtonStyle"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="40dp"
+                    android:layout_height="30dp"
                     android:layout_marginEnd="20dp"
-                    android:layout_gravity="end"
+                    android:layout_gravity="end|center"
                     android:background="@drawable/ic_next"
                     android:onClick="To_set_password"/>
             </LinearLayout>
@@ -115,19 +117,21 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@color/myColor02"
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="70dp"
-                    android:layout_height="80dp"
-                    android:orientation="vertical"
-                    android:layout_weight="1"
+                    android:layout_width="40dp"
+                    android:layout_height="90dp"
                     android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp">
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
                     <Button
                         android:id="@+id/button_record_audio"
                         android:layout_width="match_parent"
-                        android:layout_height="60dp"
+                        android:layout_height="70dp"
                         android:background="@drawable/ic_audio" />
 
                     <TextView
@@ -138,8 +142,8 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="70dp"
-                    android:layout_height="80dp"
+                    android:layout_width="40dp"
+                    android:layout_height="90dp"
                     android:orientation="vertical"
                     android:layout_weight="1"
                     android:layout_marginStart="10dp"
@@ -147,7 +151,7 @@
                     <Button
                         android:id="@+id/button_choose_video"
                         android:layout_width="match_parent"
-                        android:layout_height="60dp"
+                        android:layout_height="70dp"
                         android:background="@drawable/ic_video" />
 
                     <TextView
@@ -158,8 +162,8 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="70dp"
-                    android:layout_height="80dp"
+                    android:layout_width="40dp"
+                    android:layout_height="90dp"
                     android:orientation="vertical"
                     android:layout_weight="1"
                     android:layout_marginStart="10dp"
@@ -167,7 +171,7 @@
                     <Button
                         android:id="@+id/button_choose_cartoon"
                         android:layout_width="match_parent"
-                        android:layout_height="60dp"
+                        android:layout_height="70dp"
                         android:background="@drawable/ic_cartoon" />
 
                     <TextView
@@ -178,8 +182,8 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="70dp"
-                    android:layout_height="80dp"
+                    android:layout_width="40dp"
+                    android:layout_height="90dp"
                     android:orientation="vertical"
                     android:layout_weight="1"
                     android:layout_marginStart="10dp"
@@ -187,7 +191,7 @@
                     <Button
                         android:id="@+id/button_choose_poem"
                         android:layout_width="match_parent"
-                        android:layout_height="60dp"
+                        android:layout_height="70dp"
                         android:background="@drawable/ic_poem" />
 
                     <TextView
@@ -198,8 +202,8 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="70dp"
-                    android:layout_height="80dp"
+                    android:layout_width="40dp"
+                    android:layout_height="90dp"
                     android:orientation="vertical"
                     android:layout_weight="1"
                     android:layout_marginStart="10dp"
@@ -207,7 +211,7 @@
                     <Button
                         android:id="@+id/button_choose_music"
                         android:layout_width="match_parent"
-                        android:layout_height="60dp"
+                        android:layout_height="70dp"
                         android:background="@drawable/ic_music" />
 
                     <TextView

@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     static SQLiteDatabase Database;//数据库对象
     static String insert_sql;
 
-    @SuppressLint("UseCompatLoadingForDrawables")
+    @SuppressLint({"UseCompatLoadingForDrawables", "ResourceAsColor"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,9 +53,9 @@ public class MainActivity extends AppCompatActivity {
         if(6<=cal.get(Calendar.HOUR_OF_DAY)&&cal.get(Calendar.HOUR_OF_DAY)<=18){//获取当前小时
             main.setBackground(getDrawable(R.drawable.main));
 
-            scan_code_drawable.setTint(0xFF96A892);
-            create_blessing_drawable.setTint(0xFF96A892);
-            settings_drawable.setTint(0xFF96A892);
+            scan_code_drawable.setTint(R.color.myColor);
+            create_blessing_drawable.setTint(R.color.myColor);
+            settings_drawable.setTint(R.color.myColor);
         }else {
             main.setBackground(getDrawable(R.drawable.main_night));
 

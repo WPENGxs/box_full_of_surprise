@@ -102,7 +102,9 @@ public class Set_pack extends AppCompatActivity {
         review_button.setOnClickListener(new View.OnClickListener() {//设置预览按钮的监听
             @Override
             public void onClick(View v) {
-
+                /*
+                预览效果放置于此
+                 */
             }
         });
 
@@ -375,12 +377,12 @@ public class Set_pack extends AppCompatActivity {
 
     @Override
     public void onBackPressed(){//重写返回事件防止跳到后一步
-        Intent intent = new Intent(this, Set_tips.class);//显示intent
+        Intent intent = new Intent(this, Set_password.class);//显示intent
         startActivity(intent);
     }
 
     public void To_set_tips(View view){
-        Intent intent = new Intent(this, Set_tips.class);//显示intent
+        Intent intent = new Intent(this, Set_password.class);//显示intent
         startActivity(intent);
     }
 }
