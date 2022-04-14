@@ -53,9 +53,9 @@ public class MainActivity extends AppCompatActivity {
         if(6<=cal.get(Calendar.HOUR_OF_DAY)&&cal.get(Calendar.HOUR_OF_DAY)<=18){//获取当前小时
             main.setBackground(getDrawable(R.drawable.main));
 
-            scan_code_drawable.setTint(R.color.myColor);
-            create_blessing_drawable.setTint(R.color.myColor);
-            settings_drawable.setTint(R.color.myColor);
+            scan_code_drawable.setTint(R.color.myColor01);
+            create_blessing_drawable.setTint(R.color.myColor01);
+            settings_drawable.setTint(R.color.myColor01);
         }else {
             main.setBackground(getDrawable(R.drawable.main_night));
 
