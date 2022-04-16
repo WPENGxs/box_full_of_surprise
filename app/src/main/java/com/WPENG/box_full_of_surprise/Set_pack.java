@@ -386,7 +386,7 @@ public class Set_pack extends AppCompatActivity {
             password="没有设置密码";
         }
         if(tips.equals("不设置提示")){
-            tips_item="没有提示方式哦"; 
+            tips_item="没有提示方式哦";
         }
         text.setText("标题:"+title+"\n"+
                     "文案:"+contents+"\n"+
