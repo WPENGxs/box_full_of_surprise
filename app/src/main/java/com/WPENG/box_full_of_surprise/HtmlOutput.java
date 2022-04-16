@@ -88,7 +88,7 @@ public class HtmlOutput {
         }
         if(!SQLite.SQLite_data.video_path.equals("")) {
             HtmlOuter.append("<div class=\"centered\">");
-            HtmlOuter.append("<video controls=\"controls\" preload=\"metadata\">");
+            HtmlOuter.append("<video width=300px height=240px controls=\"controls\" preload=\"metadata\">");
             HtmlOuter.append("<source src=\"").append(video).append("\" type=\"video/mp4\">");
             HtmlOuter.append("<p>您的浏览器不支持 video 元素。</p>");
             HtmlOuter.append("</video>");
