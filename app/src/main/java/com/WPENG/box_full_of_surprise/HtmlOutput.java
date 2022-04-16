@@ -29,7 +29,7 @@ public class HtmlOutput {
                 "        <script type=\"text/javascript\" src=\"style/JS_style.js\"></script>\n" +
                 "    </head>");//开头
 
-        HtmlOuter.append("<body background=\"https://www.wpengxs.cn/shu_meng_ge/shu_meng_ge_background/").append(Set_pack.Background).append("\"");
+        HtmlOuter.append("<body background=\"https://www.wpengxs.cn/shu_meng_ge/shu_meng_ge_html/shu_meng_ge_background/").append(Set_pack.Background).append("\"");
         if(!SQLite.SQLite_data.password.equals("")){
             HtmlOuter.append(" onload=\"init(),show()\"");
         }
