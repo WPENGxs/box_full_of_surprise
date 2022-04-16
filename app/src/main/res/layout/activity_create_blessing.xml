@@ -4,11 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Create_blessing">
+    tools:context=".Create_blessing"
+    android:background="#e2e2c8">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -20,19 +25,20 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
                 android:background="@color/myColor02"
-                android:layout_marginTop="10dp">
+                android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/back_button"
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="40dp"
-                    android:layout_height="30dp"
-                    android:layout_marginStart="20dp"
+                    android:layout_height="40dp"
                     android:layout_gravity="start|center"
-                    android:background="@drawable/ic_back"
-                    android:onClick="Back_to_view"/>
+                    android:layout_marginStart="20dp"
+                    android:background="@drawable/ic_row"
+                    android:onClick="Back_to_view"
+                    android:rotation="90" />
 
                 <TextView
                     android:layout_width="0dp"
@@ -40,18 +46,19 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="文字编辑"
-                    android:textStyle="bold"
-                    android:textSize="25sp"/>
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
 
                 <Button
                     android:id="@+id/next_button"
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="40dp"
-                    android:layout_height="30dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_height="40dp"
                     android:layout_gravity="end|center"
-                    android:background="@drawable/ic_next"
-                    android:onClick="To_set_password"/>
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/ic_row"
+                    android:onClick="To_set_password"
+                    android:rotation="270" />
             </LinearLayout>
 
             <LinearLayout
@@ -77,8 +84,8 @@
                     android:layout_width="300dp"
                     android:layout_height="60dp"
                     android:layout_marginStart="50dp"
-                    android:layout_marginTop="50dp"
-                    android:layout_marginEnd="50dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="30dp"
                     android:hint="请输入标题"
                     android:maxLines="2"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -102,8 +109,8 @@
                     android:layout_width="300dp"
                     android:layout_height="300dp"
                     android:layout_marginStart="50dp"
-                    android:layout_marginTop="50dp"
-                    android:layout_marginEnd="50dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="30dp"
                     android:layout_marginBottom="50dp"
                     android:gravity="start"
                     android:hint="请输入文案"
@@ -117,108 +124,128 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
                 android:background="@color/myColor02"
-                android:orientation="horizontal">
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_weight="1"
+                    android:textSize="25sp"
+                    android:text="◕添加一点互动元素吧\n((o٩(๑•̀ω•́๑)۶o))" />
 
                 <LinearLayout
-                    android:layout_width="40dp"
-                    android:layout_height="80dp"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginEnd="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
                     android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/create_round_style"
+                    android:orientation="horizontal">
 
                     <Button
                         android:id="@+id/button_record_audio"
-                        android:layout_width="match_parent"
+                        android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:background="@drawable/ic_audio" />
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="20dp"
+                        android:layout_height="match_parent"
                         android:gravity="center"
-                        android:text="录音" />
+                        android:textSize="20sp"
+                        android:text="录音\nლ(・´ｪ`・ლ)"/>
+
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="40dp"
-                    android:layout_height="80dp"
-                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
                     android:layout_weight="1"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginEnd="15dp">
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/create_round_style"
+                    android:orientation="horizontal">
+
                     <Button
                         android:id="@+id/button_choose_video"
-                        android:layout_width="match_parent"
+                        android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:background="@drawable/ic_video" />
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="20dp"
+                        android:layout_height="match_parent"
                         android:gravity="center"
-                        android:text="视频" />
+                        android:textSize="20sp"
+                        android:text="视频\n(o´・ω・`)σ)Д`)" />
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="40dp"
-                    android:layout_height="80dp"
-                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
                     android:layout_weight="1"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginEnd="15dp">
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/create_round_style"
+                    android:orientation="horizontal">
+
                     <Button
                         android:id="@+id/button_choose_cartoon"
-                        android:layout_width="match_parent"
+                        android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:background="@drawable/ic_cartoon" />
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="20dp"
+                        android:layout_height="match_parent"
                         android:gravity="center"
-                        android:text="动漫" />
+                        android:textSize="20sp"
+                        android:text="动漫\n(゜-゜)つロ" />
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="40dp"
-                    android:layout_height="80dp"
-                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
                     android:layout_weight="1"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginEnd="15dp">
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/create_round_style"
+                    android:orientation="horizontal">
+
                     <Button
                         android:id="@+id/button_choose_poem"
-                        android:layout_width="match_parent"
+                        android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:background="@drawable/ic_poem" />
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="20dp"
+                        android:layout_height="match_parent"
                         android:gravity="center"
-                        android:text="藏头诗" />
+                        android:textSize="20sp"
+                        android:text="藏头诗\n┬─┬ ( ' - ')" />
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="40dp"
-                    android:layout_height="80dp"
-                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
                     android:layout_weight="1"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginEnd="15dp">
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/create_round_style"
+                    android:orientation="horizontal">
+
                     <Button
                         android:id="@+id/button_choose_music"
-                        android:layout_width="match_parent"
+                        android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:background="@drawable/ic_music" />
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="20dp"
+                        android:layout_height="match_parent"
                         android:gravity="center"
-                        android:text="音乐" />
+                        android:textSize="20sp"
+                        android:text="音乐\n(ゝ∀･)b～♪" />
                 </LinearLayout>
 
             </LinearLayout>

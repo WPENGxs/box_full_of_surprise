@@ -4,18 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Settings">
+    tools:context=".Settings"
+    android:background="#e2e2c8">
     <Button
         android:id="@+id/return_button"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        android:background="@drawable/rimless_button"
+        android:background="@drawable/ic_row"
+        android:rotation="90"
         android:onClick="To_MainActivity"
-        android:text="返回"
-        android:textColor="#56CFFF"
-        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         style="?android:attr/borderlessButtonStyle"/>

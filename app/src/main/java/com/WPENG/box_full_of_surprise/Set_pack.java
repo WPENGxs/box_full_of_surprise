@@ -369,13 +369,32 @@ public class Set_pack extends AppCompatActivity {
         TextView text=new TextView(Set_pack.this);
         Linear_confirm.removeAllViews();//清除所有布局
         Linear_confirm.addView(text);
-        text.setText("标题:"+SQLite.SQLite_data.title+"\n"+
-                    "文案:"+SQLite.SQLite_data.contents+"\n"+
-                    "音频:"+SQLite.SQLite_data.audio_name+"\n"+
-                    "视频:"+SQLite.SQLite_data.video_name+"\n"+
-                    "密码:"+SQLite.SQLite_data.password+"\n"+
-                    "提示方式:"+SQLite.SQLite_data.tips+"\n"+
-                    "提示值:"+SQLite.SQLite_data.tips_item+"\n"
+        String title=SQLite.SQLite_data.title;
+        String contents=SQLite.SQLite_data.contents;
+        String audio_name=SQLite.SQLite_data.audio_name;
+        String video_name=SQLite.SQLite_data.video_name;
+        String password=SQLite.SQLite_data.password;
+        String tips=SQLite.SQLite_data.tips;
+        String tips_item=SQLite.SQLite_data.tips_item;
+        if(audio_name.equals("")){
+            audio_name="未选择音频";
+        }
+        if(video_name.equals("")){
+            video_name="未选择视频";
+        }
+        if(password.equals("")){
+            password="没有设置密码";
+        }
+        if(tips.equals("不设置提示")){
+            tips_item="没有提示方式哦"; 
+        }
+        text.setText("标题:"+title+"\n"+
+                    "文案:"+contents+"\n"+
+                    "音频:"+audio_name+"\n"+
+                    "视频:"+video_name+"\n"+
+                    "密码:"+password+"\n"+
+                    "提示方式:"+tips+"\n"+
+                    "提示值:"+tips_item+"\n"
         );
         text.setTextSize(20);
     }
