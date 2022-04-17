@@ -21,6 +21,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import java.io.File;
@@ -122,6 +123,75 @@ public class Create_blessing extends AppCompatActivity {
                     }
                 });
                 recAudio.show();
+            }
+        });
+
+        Button cartoon_btu=findViewById(R.id.button_choose_cartoon);
+        cartoon_btu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder Dialog = new AlertDialog.Builder(Create_blessing.this);
+                LinearLayout linearLayout=new LinearLayout(Create_blessing.this);
+                linearLayout.setOrientation(LinearLayout.VERTICAL);
+                Button btu=new Button(Create_blessing.this);
+                EditText edit=new EditText(Create_blessing.this);
+                btu.setText("上传点这里");
+                edit.setHint("输入点这里");
+                linearLayout.addView(btu);
+                linearLayout.addView(edit);
+                Dialog.setTitle("上传动漫头像或者输入你心仪的动漫");
+                Dialog.setView(linearLayout);
+                Dialog.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+                Dialog.show();
+            }
+        });
+
+        Button poem_btu=findViewById(R.id.button_choose_poem);
+        poem_btu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder Dialog = new AlertDialog.Builder(Create_blessing.this);
+                EditText edit=new EditText(Create_blessing.this);
+                edit.setHint("输入点这里");
+                Dialog.setTitle("输入藏头诗的头");
+                Dialog.setView(edit);
+                Dialog.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+                Dialog.show();
+            }
+        });
+
+        Button music_btu=findViewById(R.id.button_choose_music);
+        music_btu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder Dialog = new AlertDialog.Builder(Create_blessing.this);
+                LinearLayout linearLayout=new LinearLayout(Create_blessing.this);
+                linearLayout.setOrientation(LinearLayout.VERTICAL);
+                Button btu=new Button(Create_blessing.this);
+                EditText edit=new EditText(Create_blessing.this);
+                btu.setText("上传点这里");
+                edit.setHint("输入点这里");
+                linearLayout.addView(btu);
+                linearLayout.addView(edit);
+                Dialog.setTitle("上传音乐或者输入你心仪的音乐");
+                Dialog.setView(linearLayout);
+                Dialog.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+                Dialog.show();
             }
         });
     }
