@@ -194,7 +194,11 @@ public class Set_password extends AppCompatActivity {
             } else if (select_tip.equals("密室小游戏")) {
                 LinearLayout tips_out = findViewById(R.id.tips_out);//布局文件
                 tips_out.removeAllViews();//清除所有布局
-
+                Button button = new Button(Set_password.this);
+                tips_out.addView(button);
+                button.setBackground(getDrawable(R.drawable.general_button));
+                button.setText("请选择小游戏类型");
+                button.setTextSize(20);
                 SQLite.SQLite_data.tips = "密室小游戏";
                 SQLite.SQLite_data.tips_item = "";
             }
