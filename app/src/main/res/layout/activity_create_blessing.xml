@@ -152,11 +152,12 @@
                         android:background="@drawable/ic_audio" />
 
                     <TextView
+                        android:id="@+id/audio_text"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:textSize="20sp"
-                        android:text="录音\nლ(・´ｪ`・ლ)"/>
+                        android:text="录音\nლ(・´ｪ`・ლ)"
+                        android:textSize="20sp" />
 
                 </LinearLayout>
 
@@ -175,11 +176,12 @@
                         android:background="@drawable/ic_video" />
 
                     <TextView
+                        android:id="@+id/video_text"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:textSize="20sp"
-                        android:text="视频\n(o´・ω・`)σ)Д`)" />
+                        android:text="视频\n(o´・ω・`)σ)Д`)"
+                        android:textSize="20sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -197,11 +199,12 @@
                         android:background="@drawable/ic_cartoon" />
 
                     <TextView
+                        android:id="@+id/cartoon_text"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:textSize="20sp"
-                        android:text="动漫\n(゜-゜)つロ" />
+                        android:text="动漫\n(゜-゜)つロ"
+                        android:textSize="20sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -219,11 +222,12 @@
                         android:background="@drawable/ic_poem" />
 
                     <TextView
+                        android:id="@+id/poem_text"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:textSize="20sp"
-                        android:text="藏头诗\n┬─┬ ( ' - ')" />
+                        android:text="藏头诗\n┬─┬ ( ' - ')"
+                        android:textSize="20sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -241,11 +245,12 @@
                         android:background="@drawable/ic_music" />
 
                     <TextView
+                        android:id="@+id/music_text"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:textSize="20sp"
-                        android:text="音乐\n(ゝ∀･)b～♪" />
+                        android:text="音乐\n(ゝ∀･)b～♪"
+                        android:textSize="20sp" />
                 </LinearLayout>
 
             </LinearLayout>

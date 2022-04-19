@@ -55,6 +55,8 @@ public class Set_pack extends AppCompatActivity {
     boolean IsHtmlUpload=false;
     Handler handler=null;
 
+    boolean IsReview=false;
+
     @SuppressLint("HandlerLeak")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -127,9 +129,46 @@ public class Set_pack extends AppCompatActivity {
         review_button.setOnClickListener(new View.OnClickListener() {//设置预览按钮的监听
             @Override
             public void onClick(View v) {
+                HtmlOutput();//新建Html文件
                 /*
-                预览效果放置于此
-                 */
+                 * 在此把数据上传服务器并生成url,将url写入SQLite
+                 * */
+                SQLite.SQLite_data.QRCode_url = "https://www.wpengxs.cn/shu_meng_ge/shu_meng_ge_html/" + HtmlName;
+
+                new Thread() {//上传Html
+                    @Override
+                    public void run() {
+                        /*Message html_message=new Message();*/
+                        FTP_server FTP_uploadHtml = new FTP_server("1.15.28.84", "shu_meng_ge_html", "SMG_0628");
+                        try {
+                            FTP_uploadHtml.openConnect();
+                            File html_file = new File(SQLite.SQLite_data.Html_path);//Html文件路径
+                            FTP_uploadHtml.uploadingSingle(html_file);//上传html文件
+                            FTP_uploadHtml.closeConnect();
+                        } catch (IOException e) {
+                            /*html_message.what=0x03;
+                            handler.sendMessage(html_message);*/
+                            e.printStackTrace();
+                        }
+                        /*html_message.what=0x01;
+                        handler.sendMessage(html_message);*/
+
+                        /*try {//在此向云端数据库发送标题、密码和提示方式
+                            Data_socket socket=new Data_socket("1.15.28.84",39002);
+                            socket.SentData(SQLite.SQLite_data.title+"/"+SQLite.SQLite_data.password+"/"+SQLite.SQLite_data.tips);
+                            socket.Close();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }*/
+                    }
+                }.start();
+
+
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setDataAndType(Uri.parse(SQLite.SQLite_data.QRCode_url), "text/html");
+                startActivity(intent);
+
+                IsReview=true;
             }
         });
 
@@ -138,43 +177,45 @@ public class Set_pack extends AppCompatActivity {
             // 设置完成按钮的监听
             @Override
             public void onClick(View v) {
-                HtmlOutput();//新建Html文件
+                if(!IsReview) {
+                    HtmlOutput();//新建Html文件
+                }
                 /*
                  * 在此把数据上传服务器并生成url,将url写入SQLite
                  * */
-                SQLite.SQLite_data.QRCode_url="https://www.wpengxs.cn/shu_meng_ge/shu_meng_ge_html/"+HtmlName;
+                SQLite.SQLite_data.QRCode_url = "https://www.wpengxs.cn/shu_meng_ge/shu_meng_ge_html/" + HtmlName;
 
-                MainActivity.insert_sql="insert into user(title,contents,audio_name,picture_name1,picture_name2,picture_name3,video_name," +
+                MainActivity.insert_sql = "insert into user(title,contents,audio_name,cartoon,poem,music,video_name," +
                         "audio_path,picture_path1,picture_path2,picture_path3,video_path," +
                         "password,tips,tips_item,QRCode_url,Html_path) " +
-                        "values('"+ SQLite.SQLite_data.title +
-                        "','"+SQLite.SQLite_data.contents+
-                        "','"+SQLite.SQLite_data.audio_name+
-                        "','"+SQLite.SQLite_data.picture_name1+
-                        "','"+SQLite.SQLite_data.picture_name2+
-                        "','"+SQLite.SQLite_data.picture_name3+
-                        "','"+SQLite.SQLite_data.video_name+
-                        "','"+SQLite.SQLite_data.audio_path+
-                        "','"+SQLite.SQLite_data.picture_path1+
-                        "','"+SQLite.SQLite_data.picture_path2+
-                        "','"+SQLite.SQLite_data.picture_path3+
-                        "','"+SQLite.SQLite_data.video_path+
-                        "','"+SQLite.SQLite_data.password+
-                        "','"+SQLite.SQLite_data.tips+
-                        "','"+SQLite.SQLite_data.tips_item+
-                        "','"+SQLite.SQLite_data.QRCode_url+
-                        "','"+SQLite.SQLite_data.Html_path+
+                        "values('" + SQLite.SQLite_data.title +
+                        "','" + SQLite.SQLite_data.contents +
+                        "','" + SQLite.SQLite_data.audio_name +
+                        "','" + SQLite.SQLite_data.cartoon +
+                        "','" + SQLite.SQLite_data.poem +
+                        "','" + SQLite.SQLite_data.music +
+                        "','" + SQLite.SQLite_data.video_name +
+                        "','" + SQLite.SQLite_data.audio_path +
+                        "','" + SQLite.SQLite_data.picture_path1 +
+                        "','" + SQLite.SQLite_data.picture_path2 +
+                        "','" + SQLite.SQLite_data.picture_path3 +
+                        "','" + SQLite.SQLite_data.video_path +
+                        "','" + SQLite.SQLite_data.password +
+                        "','" + SQLite.SQLite_data.tips +
+                        "','" + SQLite.SQLite_data.tips_item +
+                        "','" + SQLite.SQLite_data.QRCode_url +
+                        "','" + SQLite.SQLite_data.Html_path +
                         "')";
                 MainActivity.Database.execSQL(MainActivity.insert_sql);
 
-                new Thread(){//上传Html
+                new Thread() {//上传Html
                     @Override
-                    public void run(){
+                    public void run() {
                         /*Message html_message=new Message();*/
-                        FTP_server FTP_uploadHtml=new FTP_server("1.15.28.84","shu_meng_ge_html","SMG_0628");
+                        FTP_server FTP_uploadHtml = new FTP_server("1.15.28.84", "shu_meng_ge_html", "SMG_0628");
                         try {
                             FTP_uploadHtml.openConnect();
-                            File html_file=new File(SQLite.SQLite_data.Html_path);//Html文件路径
+                            File html_file = new File(SQLite.SQLite_data.Html_path);//Html文件路径
                             FTP_uploadHtml.uploadingSingle(html_file);//上传html文件
                             FTP_uploadHtml.closeConnect();
                         } catch (IOException e) {

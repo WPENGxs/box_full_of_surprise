@@ -3,26 +3,25 @@ package com.WPENG.box_full_of_surprise;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 
 import android.Manifest;
-import android.app.Dialog;
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.FileUtils;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 import java.io.File;
 import java.io.FileFilter;
@@ -48,6 +47,11 @@ public class Create_blessing extends AppCompatActivity {
 
         Button choose_video_btu=findViewById(R.id.button_choose_video);
         Button record_audio_btu=findViewById(R.id.button_record_audio);
+        TextView audio_text=findViewById(R.id.audio_text);
+        TextView video_text=findViewById(R.id.video_text);
+        TextView cartoon_text=findViewById(R.id.cartoon_text);
+        TextView poem_text=findViewById(R.id.poem_text);
+        TextView music_text=findViewById(R.id.music_text);
         choose_video_btu.setOnClickListener(new View.OnClickListener() {//选择视频按钮的点击事件
             @Override
             public void onClick(View v) {
@@ -59,7 +63,7 @@ public class Create_blessing extends AppCompatActivity {
                 AlertDialog.Builder Dialog = new AlertDialog.Builder(Create_blessing.this);
                 Dialog.setTitle("选择视频文件：");
                 Dialog.setItems(Video_name, (dialog, which) -> {
-                    choose_video_btu.setText(VideoList.get(which).DisplayName);
+                    video_text.setText(VideoList.get(which).DisplayName);
                     //在此将视频路径和名字存到SQLite数据库中
                     SQLite.SQLite_data.video_name=VideoList.get(which).DisplayName;
                     SQLite.SQLite_data.video_path=VideoList.get(which).Path;
@@ -95,6 +99,7 @@ public class Create_blessing extends AppCompatActivity {
                             public void onClick(DialogInterface dialog, int which) {
                                 stopRecord();
                                 Toast.makeText(Create_blessing.this,"录音已保存",Toast.LENGTH_SHORT).show();
+                                audio_text.setText("录音文件已选择");
                             }
                         });
                         startRecord();
@@ -133,18 +138,17 @@ public class Create_blessing extends AppCompatActivity {
                 AlertDialog.Builder Dialog = new AlertDialog.Builder(Create_blessing.this);
                 LinearLayout linearLayout=new LinearLayout(Create_blessing.this);
                 linearLayout.setOrientation(LinearLayout.VERTICAL);
-                Button btu=new Button(Create_blessing.this);
                 EditText edit=new EditText(Create_blessing.this);
-                btu.setText("上传点这里");
-                edit.setHint("输入点这里");
-                linearLayout.addView(btu);
+                edit.setHint("输入pixiv链接");
                 linearLayout.addView(edit);
-                Dialog.setTitle("上传动漫头像或者输入你心仪的动漫");
+                Dialog.setTitle("输入pixiv动漫链接");
                 Dialog.setView(linearLayout);
                 Dialog.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @SuppressLint("SetTextI18n")
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-
+                        cartoon_text.setText("pixiv链接:"+edit.getText().toString());
+                        SQLite.SQLite_data.cartoon=edit.getText().toString();
                     }
                 });
                 Dialog.show();
@@ -161,9 +165,10 @@ public class Create_blessing extends AppCompatActivity {
                 Dialog.setTitle("输入藏头诗的头");
                 Dialog.setView(edit);
                 Dialog.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @SuppressLint("SetTextI18n")
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-
+                        poem_text.setText("头:"+edit.getText().toString());
                     }
                 });
                 Dialog.show();
@@ -186,9 +191,10 @@ public class Create_blessing extends AppCompatActivity {
                 Dialog.setTitle("上传音乐或者输入你心仪的音乐");
                 Dialog.setView(linearLayout);
                 Dialog.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @SuppressLint("SetTextI18n")
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-
+                        music_text.setText("已选音乐:"+edit.getText().toString());
                     }
                 });
                 Dialog.show();

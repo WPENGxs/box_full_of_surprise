@@ -19,9 +19,9 @@ public class SQLite extends SQLiteOpenHelper {
                 "title text not null,"+//标题
                 "contents text not null,"+//文案
                 "audio_name text ,"+//音频名称
-                "picture_name1 text,"+//图片名称1
-                "picture_name2 text,"+//图片名称2
-                "picture_name3 text,"+//图片名称3
+                "cartoon text,"+//图片名称1
+                "poem text,"+//图片名称2
+                "music text,"+//图片名称3
                 "video_name text ,"+//视频名称
                 "audio_path text ,"+//音频路径
                 "picture_path1 text,"+//图片路径1
@@ -41,11 +41,11 @@ public class SQLite extends SQLiteOpenHelper {
     }
 
     public static class SQLite_data{//存放中转数据
-        static String title="",contents="",audio_name="",picture_name1="",picture_name2="",picture_name3="",video_name="",
+        static String title="",contents="",audio_name="",cartoon="",poem="",music="",video_name="",
                 audio_path="",picture_path1="",picture_path2="",picture_path3="",video_path="",
                 password="",tips="",tips_item="",QRCode_url="",Html_path="";
         public static void dataInit(){
-            title="";contents="";audio_name="";picture_name1="";picture_name2="";picture_name3="";video_name="";
+            title="";contents="";audio_name="";cartoon="";poem="";music="";video_name="";
                     audio_path="";picture_path1="";picture_path2="";picture_path3="";video_path="";
                     password="";tips="";tips_item="";QRCode_url="";Html_path="";
         }
